@@ -1,13 +1,3 @@
---[[
-Created by Edge
-Redistributed by WeAreDevs: https://wearedevs.net/scripts
-
-Description: A command line cheat with over 6 years of development
-
-Instruction: Execute this script and wait for an interface to appear on your game screen.
-
-]]
-
 if IY_LOADED and not _G.IY_DEBUG == true then
 	error("Infinite Yield is already running!",0)
 	return
