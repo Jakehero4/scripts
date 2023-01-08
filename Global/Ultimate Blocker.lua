@@ -16,7 +16,7 @@ if not game:IsLoaded() then game.Loaded:Wait() end -- IGNORE THIS AND SCROLL DOW
 
 -- Settings! Change these or ultimate blocker will not work!
 wait(2.5) -- If the player you blocked is still in game and they are inside the table CORRECTLY then increase this number!
-getgenv().Whitelisted_Players = {"HackerKid134", "Dark_Eccentric", "Add commas and quotes to add more players! like the examples to the left!"} -- These are the players you want to blacklist. Go to their roblox profile and copy their username and paste it into the quotes.
+getgenv().Whitelisted_Players = {"USERNAME HERE", "USERNAME HERE", "Add commas and quotes to add more players! like the examples to the left!"} -- These are the players you want to blacklist. Go to their roblox profile and copy their username and paste it into the quotes.
 
 -- Starting values
 local RS = game:GetService("RunService")
@@ -54,4 +54,4 @@ for i,v in pairs(Whitelisted_Players) do
 end
 
 
-    end) -- 69 lines of code haha funny
+    end)
