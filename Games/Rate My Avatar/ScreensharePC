@@ -1,4 +1,5 @@
 -- ./pypy3 main.py
+-- https://www.mediafire.com/file/tof6dlui12mxv9e/pypy3.8-v7.3.10-win64.zip/file
 function update(text)
     local args = {
         [1] = "Update",
