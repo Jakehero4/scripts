@@ -1,20 +1,3 @@
---✟_SPYRMAM_YT✟#9935
---BROUGHT TO YOU BY RSCRIPTS.NET--
-
---  _____       _     _             ___   ___  __   __  
--- |  __ \     | |   | |           |__ \ / _ \/_ | / /  
--- | |__) |___ | |__ | | _____  __    ) | | | || |/ /_  
--- |  _  // _ \| '_ \| |/ _ \ \/ /   / /| | | || | '_ \
--- | | \ \ (_) | |_) | | (_) >  &lt;   / /_| |_| || | (_) |
--- |_|  \_\___/|_.__/|_|\___/_/\_\ |____|\___/ |_|\___/
---                                                      
---              Script made by Invisible_                    
---                  I miss you 2016 <3 xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed>InfoProvider:LoadAssets:", result)
-    end
-    end))
-    end)
-   end
-   
    function MainGui:tileBackgroundTexture(frameToFill)
     if not frameToFill then return end
     frameToFill:ClearAllChildren()
