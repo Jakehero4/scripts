@@ -1,0 +1,326 @@
+_G.balls = "AMEK@!!"
+if _G.balls == "AMEK@!!" then
+--varas
+local player = game.Players.LocalPlayer
+--varas
+_G.benx = false
+_G.stare = false
+local benxplr 
+local stareplr
+local flingcool = false
+local COOLDOWN = false
+local bwalkcool = false
+local killcool = false
+local events = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents")
+local messageDoneFiltering = events:WaitForChild("OnMessageDoneFiltering")
+local players = game:GetService("Players")
+_G.speed = 0.1
+_G.goin = false
+local benxed = false
+loadstring("blacklisted = "..game:HttpGet(('https://pastebin.com/raw/54Zy2yJZ')))()
+--function
+local function chooseRandomFromDictionary(dictionary)
+	local t={}
+	for i,v in pairs(dictionary) do
+		t[#t+1]=v
+	end
+	return t[math.random(1,#t)]
+end
+mytable={hi="7230935591",bye="7392276523",r="7700948815",t="1481738247",x="1481738247",ba="488885760",bsz="488885760",jea="2387631574",gekakm="2991963698",nfiaj="7804694390",uga="294841732",egghead="7456430951",fly="7857872172",lod="5459918430",bra="6818272719",monee="4585661474"}
+local A_1 = "Update"
+local A_2 = 
+	{
+		["DescriptionText"] = ";start to turn it on", 
+		["ImageId"] = chooseRandomFromDictionary(mytable)
+	}
+local Event = game:GetService("ReplicatedStorage").CustomiseBooth
+Event:FireServer(A_1, A_2)
+--msg
+
+messageDoneFiltering.OnClientEvent:Connect(function(message)
+	local player = players:FindFirstChild(message.FromSpeaker)
+	local message = message.Message or ""
+	local msg = message
+	if player then
+		if player.Name == blacklisted[1] or player.Name == blacklisted[2] or player.Name == blacklisted[3] or player.Name == blacklisted[4] or player.Name == blacklisted[5]  or player.Name == blacklisted[6] or player.Name == blacklisted[7]or player.Name == blacklisted[8] or player.Name == blacklisted[9] or player.Name == blacklisted[10] then 
+		else
+			COOLDOWN = true
+			if msg == ";start" then
+				local A_1 = "Update"
+				local A_2 = 
+					{ 
+						["DescriptionText"] = player.Name.." Has turned it on please wait until i boot up.", 
+						["ImageId"] = 0
+					}
+				local Event = game:GetService("ReplicatedStorage").CustomiseBooth
+				Event:FireServer(A_1, A_2)
+				wait(1)
+				_G.goin = true
+				COOLDOWN = false
+			end
+			if msg == ";stop" then
+				_G.goin = false
+				local A_1 = "Update"
+				local A_2 = 
+					{
+						["DescriptionText"] = player.Name.." Has turned it off say ;start to turn it back on", 
+						["ImageId"] = 0
+					}
+				local Event = game:GetService("ReplicatedStorage").CustomiseBooth
+				Event:FireServer(A_1, A_2)
+			end
+			if _G.goin == true then
+			
+			if msg == ";bwalk" then
+				if bwalkcool == false then
+					bwalkcool = true
+					for i,v in pairs(workspace:GetDescendants()) do
+						if v:IsA("TextLabel") and v.Name == "Description" and v.Text == "YOU CAN CONTROL ME WITH COMMANDS : ;speed ;start ;stop ;bring ;sit ;trip ;fling ;kill ;freeze ;unfreeze ;grave ;ungrave ;glitch ;stare ;rate ;nolimbs ;dance ;jump ;walk ;wave" then
+							local human = game.Players.LocalPlayer.Character.Humanoid
+							local Body = game.Players.LocalPlayer.Character.HumanoidRootPart 
+							local Destination = v.Parent.Parent.Parent.Parent.Carpet-- Change PartNameHere to the part.
+							local path = game:GetService("PathfindingService"):CreatePath()
+							path:ComputeAsync(Body.Position, Destination.Position)
+							if path.Status == Enum.PathStatus.Success then
+								local wayPoints = path:GetWaypoints()
+								for i = 1, #wayPoints do
+									local point = wayPoints[i]
+									human:MoveTo(point.Position)
+									local success = human.MoveToFinished:Wait()
+									if point.Action == Enum.PathWaypointAction.Jump then
+										human.WalkSpeed = 0
+										wait(0.2)
+										human.WalkSpeed = 16
+										human.Jump = true
+									end
+									if not success then
+										human.Jump = true
+										human:MoveTo(point.Position)
+										if not human.MoveToFinished:Wait() then
+											break
+										end
+									end
+								end
+							end	
+						end
+					end
+					wait(5)
+					
+				end
+			end
+			if msg == ";walk" then
+				local human = game.Players.LocalPlayer.Character.Humanoid
+				local Body = game.Players.LocalPlayer.Character.HumanoidRootPart 
+				local Destination = player.Character.HumanoidRootPart-- Change PartNameHere to the part.
+				local path = game:GetService("PathfindingService"):CreatePath()
+				path:ComputeAsync(Body.Position, Destination.Position)
+				if path.Status == Enum.PathStatus.Success then
+					local wayPoints = path:GetWaypoints()
+					for i = 1, #wayPoints do
+						local point = wayPoints[i]
+						human:MoveTo(point.Position)
+						local success = human.MoveToFinished:Wait()
+						if point.Action == Enum.PathWaypointAction.Jump then
+							human.WalkSpeed = 0
+							wait(0.2)
+							human.WalkSpeed = 16
+							human.Jump = true
+						end
+						if not success then
+							human.Jump = true
+							human:MoveTo(point.Position)
+							if not human.MoveToFinished:Wait() then
+								break
+							end
+						end
+					end
+				end
+			end
+			if msg == ";jump" then
+				game.Players.LocalPlayer.Character.Humanoid.Jump = true 
+			end
+			if msg == ";unbenx" then
+				benxplr = player
+				_G.benx = false
+			end
+			if msg == ";benx" then
+				benxplr = player
+				_G.benx = true
+			end
+			if msg == ";nolimbs" then
+				for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+					if v:IsA("BasePart") and
+						v.Name == "RightUpperLeg" or
+						v.Name == "LeftUpperLeg" or
+						v.Name == "RightUpperArm" or
+						v.Name == "LeftUpperArm" then
+						v:Destroy()
+					end
+				end
+			end
+			if msg == ";wave" then
+				game:GetService("Players"):Chat("/e wave")
+			end
+			if msg == ";dance" then
+				game:GetService("Players"):Chat("/e dance"..math.random(2,3))
+			end
+			if msg == ";rate" then	
+				local A_1 = player
+				local A_2 = 5
+				local Event = game:GetService("ReplicatedStorage").PostRating
+				Event:FireServer(A_1, A_2)
+			end
+			if msg == ";ungrave" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.UpperTorso.Position.X, game.Players.LocalPlayer.Character.UpperTorso.Position.Y +1, game.Players.LocalPlayer.Character.UpperTorso.Position.z)
+			end
+			if msg == ";grave" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.UpperTorso.Position.X, game.Players.LocalPlayer.Character.UpperTorso.Position.Y -10, game.Players.LocalPlayer.Character.UpperTorso.Position.z)
+
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true	
+			end
+			if msg == ";unfreeze" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+			end
+			if msg == ";freeze" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+			end
+		
+			if msg == ";glitch" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Orientation = Vector3.new(1000,1000,1000)
+				local fly = Instance.new("BodyForce")
+				fly.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+				fly.Force = Vector3.new(40,40,40)
+				task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+			task.wait()
+				task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()			task.wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) 
+				task.wait()
+			end
+			if msg == ";unstare" then
+				_G.stare = false
+			end
+			if msg == ";stare" then
+				_G.stare = true
+				stareplr = player
+					end
+			if msg == ";kill" then
+				if killcool == false then
+
+					killcool = true
+					game.Players.LocalPlayer.Character.Humanoid.Health = 0
+					wait(30)
+					killcool = false
+				end
+			end
+			if msg == ";fling" then
+				if flingcool == false then
+					flingcool = true
+
+					game.Players.LocalPlayer.Character.Humanoid.Sit = true
+					local fly = Instance.new("BodyForce")
+					fly.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+					fly.Force = Vector3.new(10000,10000,10000)
+					wait(30)
+					flingcool = false
+				end
+			end
+			if msg == ";sit" then
+				game.Players.LocalPlayer.Character.Humanoid.Sit = true
+			end
+			if msg == ";trip" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(360,3600,360) end
+		wait(1)
+			COOLDOWN = false
+			if msg == ";bring" then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(player.Character.HumanoidRootPart.Position)
+			end
+	
+			local str = message
+			local hweught = str:match(";height (%d+)")
+			if hweught then
+				game.Players.LocalPlayer.Character.Humanoid.HipHeight = hweught
+				COOLDOWN = false
+			else
+			end
+			local str = message
+			local id = str:match(";speed (%d+)")
+			if id then
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = id
+				COOLDOWN = false
+			else
+			end
+			if msg == ";start" or msg == ";stop" then
+			else
+				COOLDOWN = false
+				end
+			end
+		end
+	end
+end)
+
+--loop
+
+while wait(_G.speed) do
+	if _G.stare == true then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position, stareplr.Character.HumanoidRootPart.Position)
+	end
+	if _G.benx == true then
+		game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = benxplr.Character.HumanoidRootPart
+
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = benxplr.Character.HumanoidRootPart.CFrame + benxplr.Character.HumanoidRootPart.CFrame.lookVector * 0.5
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 50
+		wait(0.1)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * -50	
+	end
+	if _G.goin == true then	
+		mytable={hi="7230935591",bye="7392276523",r="7700948815",t="1481738247",x="1481738247",ba="488885760",bsz="488885760",jea="2387631574",gekakm="2991963698",nfiaj="7804694390",uga="294841732",egghead="7456430951",fly="7857872172",lod="5459918430",bra="6818272719",monee="4585661474"}
+		local A_1 = "Update"
+		local A_2 = 
+			{ 
+				["DescriptionText"] = "YOU CAN CONTROL ME WITH COMMANDS : ;speed ;start ;stop ;bring ;sit ;trip ;fling ;kill ;freeze ;unfreeze ;grave ;ungrave ;glitch ;stare ;unstare ;rate ;nolimbs ;dance ;jump ;walk ;wave ;height", 
+				["ImageId"] = chooseRandomFromDictionary(mytable)
+			}
+		local Event = game:GetService("ReplicatedStorage").CustomiseBooth
+		Event:FireServer(A_1, A_2)
+
+	end
+end
+end
