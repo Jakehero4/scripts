@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Jakehero4/scripts/main/cook-burgers-admin", true))()
+loadstring(game:HttpGet("https://pastebin.com/raw/LMWCkgnm"))() 
